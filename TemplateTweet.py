@@ -7,6 +7,15 @@ csecret ='TR2XHLcHOzQL8PtwrdVMWhayeePLyNv4bDHry7HeL0'
 atoken = '169505005-l7IoKI6PkjcwVsZPrcsrAGigRiwplztMREAt807d'
 asecret = 'sgfXcgpH9rTJAMdrXzm2qsf1pmG7Pp5VvLY5cV5m9TAkb'
  
+ file = 'AlfamTwitterTraining.json'
+ 
+ #             saveFile = open(file,'a')
+#             saveFile.write(json.dumps(tweet))
+#             saveFile.write('\n')
+#             saveFile.close()
+
+
+
 class listener(StreamListener):       
 def on_data(self, data):
 print data

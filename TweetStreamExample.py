@@ -3,32 +3,30 @@ from tweepy import OAuthHandler
 from tweepy.streaming import StreamListener
 import time
 import json
-from TwitterSentiment.test2 import tweets
+import pymongo
+from pymongo import MongoClient
 
- 
+#Mongo Settings
+client = MongoClient()
+db = client.Sentiment
+Tweets = db.Tweet
+
+#Twitter Credentials
 ckey ='lfBOi9ywRgOnEZncpdYNbw'
 csecret ='TR2XHLcHOzQL8PtwrdVMWhayeePLyNv4bDHry7HeL0'
 atoken = '169505005-l7IoKI6PkjcwVsZPrcsrAGigRiwplztMREAt807d'
 asecret = 'sgfXcgpH9rTJAMdrXzm2qsf1pmG7Pp5VvLY5cV5m9TAkb'
 
-file = 'AlfamTwitterTraining.json'
-
-tweets=[]
- 
 class listener(StreamListener):
 
     def on_data(self, data):
         try:  
-            #print data
-                   
-            #tweet = data.split(',"text":"')[1].split('","source')[0]
+                          
             tweet = json.loads(data)
-            print tweet["id"]
             
-            saveFile = open(file,'a')
-            saveFile.write(json.dumps(tweet))
-            saveFile.write('\n')
-            saveFile.close()
+            print tweet["id"]
+            insertTweet = Tweets.insert(tweet)
+
             return True
         except BaseException, e:
             print 'failed on_date,', str(e)
@@ -43,4 +41,3 @@ twitterStream = Stream(auth, listener())
 twitterStream.filter(track=["geld lenen","lening","Defam","Credifance","Alpha Credit","Advanced Finance"
                             ,"krediet","private lease","Ing","Rabobank","Interbank","Nationale Nerderlanden"
                             ,"DGA","Geldshop","Geldlenen"])
-#twitterStream.filter(track=["car"])
