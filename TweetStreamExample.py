@@ -26,6 +26,8 @@ class listener(StreamListener):
             
             print tweet["id"]
             insertTweet = Tweets.insert(tweet)
+            
+            
 
             return True
         except BaseException, e:
