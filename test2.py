@@ -53,8 +53,6 @@ def get_word_features(wordlist):
 
 word_features = get_word_features(get_words_in_tweets(lst2Tweets))
 
-
-            
 def extract_features (document):
      documents_word = set(document) 
      features = {}
