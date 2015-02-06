@@ -42,4 +42,4 @@ auth.set_access_token(atoken, asecret)
 twitterStream = Stream(auth, listener())
 twitterStream.filter(track=["geld lenen","lening","Defam","Credifance","Alpha Credit","Advanced Finance"
                             ,"krediet","private lease","Ing","Rabobank","Interbank","Nationale Nerderlanden"
-                            ,"DGA","Geldshop","Geldlenen"])
+                            ,"DGA","Geldshop","Geldlenen","ABN AMBRO"])
