@@ -1,8 +1,3 @@
-import pymongo
-import nltk
-import json
-import TrainerScore
-
 from TrainerScore import tagText
 from json import JSONEncoder
 from pymongo import MongoClient
