@@ -25,20 +25,17 @@ TweetTraining = db.TweetTraining
 #GET PROPERTIES FROM TWEET
 for tweet in Tweets.find({"lang":"nl"},{"text","geo","created_at","user.friends_count","user.name","user.followers_count","lang"}).limit(3000):
   
-  try:
+    try:
    
-    lsTweet = tagText(tweet['text']
-                                , tweet["user"]['name']
-                                , tweet["user"]['friends_count']
-                                , tweet["user"]['followers_count']
-                                , tweet['geo']
-                                , tweet['created_at']
-                                , tweet['lang'])  
+        lsTweet = tagText(tweet['text']
+                        , tweet["user"]['name']
+                        , tweet["user"]['friends_count']
+                        , tweet["user"]['followers_count']
+                        , tweet['geo']
+                        , tweet['created_at']
+                        , tweet['lang'])  
     
-    TweetTraining.insert(lsTweet)
+        TweetTraining.insert(lsTweet)
     
-  except IOError as e:
-      print "I/O error({0}): {1}".format(e.errno, e.strerror)
-    
-
- 
+    except IOError as e:
+        print "I/O error({0}): {1}".format(e.errno, e.strerror)
