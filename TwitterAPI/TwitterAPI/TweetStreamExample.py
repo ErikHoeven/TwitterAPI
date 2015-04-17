@@ -3,7 +3,6 @@ from tweepy import OAuthHandler
 from tweepy.streaming import StreamListener
 import time
 import json
-import pymongo
 from pymongo import MongoClient
 
 #Mongo Settings
@@ -26,7 +25,7 @@ class listener(StreamListener):
             
             if tweet["lang"] == "nl":
                 print tweet["id"]
-                insertTweet = Tweets.insert(tweet)
+                Tweets.insert(tweet)
             
             
 
@@ -50,7 +49,6 @@ twitterStream.filter( track=["geld lenen"
                             ,"Alpha Credit"
                             ,"ALPHA CREDIT"
                             ,"Advanced Finance"
-                            ,"ADVANCED FINANCE"
                             ,"krediet"
                             ,"KREDIET"
                             ,"private lease"
@@ -80,6 +78,6 @@ twitterStream.filter( track=["geld lenen"
                             ,"SNS"
                             ,"AlfamConsumerCredit"
                             ,"GreenLoans"
-                            ] 
+                            ], languages="nl" 
                      )
 

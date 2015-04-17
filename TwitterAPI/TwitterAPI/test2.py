@@ -1,11 +1,10 @@
-import pymongo
 import nltk
 import json
 from json import JSONEncoder
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from nltk.corpus import words
-from Crypto.Util.RFC1751 import wordlist
+
      
 #Variable declaratie
 strSearchArg = "_id"

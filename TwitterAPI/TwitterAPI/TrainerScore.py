@@ -5,6 +5,9 @@ Created on Feb 22, 2015
 '''
 
 from TaggerCategorie import tagCategorie
+from AlfamCorpus import fltrBijWoorden
+from AlfamCorpus import fltrIcons
+from AlfamCorpus import fltrStopWoorden
 
 
 def tagText(tekst,user,friends,follower,geo,creation_date,lang):
@@ -90,6 +93,25 @@ def tagText(tekst,user,friends,follower,geo,creation_date,lang):
                 ,"al"                               : 1.0
                 ,"gefund"                           : 1.0
                 ,"officieel"                        : 1.0
+                ,"onwaarachtig"                     :-1.0
+                ,"nederlaag"                        :-1.0
+                ,"solliciteer"                      : 1.0
+                ,"klantgerichte"                    : 1.0
+                ,"boete bij ABN"                    :-1.0
+                ,"samenwerking"                     : 1.0
+                ,"Niet mijn smaak"                  :-1.0
+                ,"Makkelijk Lening Hier"            : 1.0
+                ,"Snel lening bieden"               : 1.0
+                ,"Dringend lening om schulden te wissen"    : -1.0
+                ,"krijgt geld"                              :  1.0
+                ,"vuile criminelen"                         :  1.0
+                ,"trots"                                    :  2.0
+                ,"weigert financiering "                    : -1.0
+                ,"nieuwe beoordeling"                       :  1.0
+                ,"kwetst me"                                : -2.0
+                ,"krakers"                                  : -1.0
+                ,"weggegooid geld"                          : -1.0
+                ,"#witwaspraktijkern"                       : -2.0
                   }
     
     score = 0.0
@@ -120,6 +142,7 @@ def tagText(tekst,user,friends,follower,geo,creation_date,lang):
                 ,"score"         : str(score) 
                 ,"lang"          : lang
                 ,"colour"        : colour
+                ,"hotlist"       :fltrIcons(fltrBijWoorden(fltrStopWoorden(tekst)))
                }
 
     return resltaat
